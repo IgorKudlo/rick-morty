@@ -1,3 +1,12 @@
+export type CharactersParams = {
+    page?: number,
+    name?: string,
+    status?: 'Alive' | 'Dead' | unknown,
+    species?: string,
+    type?: string,
+    gender?: 'female' | 'male' | 'genderless' | unknown
+}
+
 export type CharactersResponse = {
     info: {
         count: number,

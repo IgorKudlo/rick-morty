@@ -1,6 +1,6 @@
 import { RootStoreContext } from "@/stores/root-store-context.ts";
 import RootStore from "@/stores/root-store.ts";
-import Characters from "@/components/characters/Characters.tsx";
+import CharactersPage from "@/pages/characters-page/CharactersPage.tsx";
 import '@mantine/core/styles.css';
 import styles from "./styles.module.css";
 
@@ -8,7 +8,7 @@ function App() {
     return (
         <RootStoreContext.Provider value={new RootStore()}>
             <div className={styles.app}>
-                <Characters />
+                <CharactersPage />
             </div>
         </RootStoreContext.Provider>
     );
