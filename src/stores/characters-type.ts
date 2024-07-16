@@ -1,10 +1,10 @@
 export type CharactersParams = {
     page?: number,
     name?: string,
-    status?: 'Alive' | 'Dead' | unknown,
+    status?: CharacterStatus,
     species?: string,
     type?: string,
-    gender?: 'female' | 'male' | 'genderless' | unknown
+    gender?: CharacterGender
 }
 
 export type CharactersResponse = {
@@ -22,7 +22,7 @@ export type Characters = Character[];
 export type Character = {
     id: number,
     name: string,
-    status: 'Alive' | 'Dead' | unknown,
+    status: CharacterStatus,
     species: string,
     type: string,
     gender: string,
@@ -38,4 +38,17 @@ export type Character = {
     episode: string[],
     url: string,
     created: string
+}
+
+export enum CharacterStatus {
+    Alive ='Alive',
+    Dead = 'Dead',
+    UnknownStatus = 'unknown'
+}
+
+export enum CharacterGender {
+    female = 'female',
+    male = 'male',
+    genderless = 'genderless',
+    unknownGender = 'unknown'
 }

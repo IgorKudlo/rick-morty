@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import charactersStore from "@/stores/characters-store.ts";
-import { Character } from "@/stores/characters-type.ts";
-import { Image, List, rem, ThemeIcon } from '@mantine/core';
+import {Character, CharacterStatus} from "@/stores/characters-type.ts";
+import {Image, List, rem, ThemeIcon} from '@mantine/core';
 import {IconCircleCheck} from "@tabler/icons-react";
 import styles from './styles.module.css';
 
@@ -46,10 +46,10 @@ function SingleCharacter () {
                 <List.Item><strong>Species</strong> - {character.species}</List.Item>
                 <List.Item
                     icon={
-                        <ThemeIcon color={character.status === 'Alive' ? 'green' : character.status === 'Dead' ? 'red' : 'gray'} size={24} radius="xl"></ThemeIcon>
+                        <ThemeIcon color={character.status === CharacterStatus.Alive ? 'green' : character.status === CharacterStatus.Dead ? 'red' : 'gray'} size={24} radius="xl"></ThemeIcon>
                     }
                 >
-                    <strong>Status</strong> - {character.status === 'Alive' ? 'Alive' : character.status === 'Dead' ? 'Dead' : 'Unknown status'}
+                    <strong>Status</strong> - {character.status === CharacterStatus.Alive ? 'Alive' : character.status === CharacterStatus.Dead ? 'Dead' : 'Unknown status'}
                 </List.Item>
             </List>
         </div>

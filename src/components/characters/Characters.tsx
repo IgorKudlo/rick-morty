@@ -19,7 +19,16 @@ function Characters() {
     return (
         <div className={styles.characters}>
             {charactersStore.characters.map((character) => (
-                <Character key={character.id} id={character.id} image={character.image} name={character.name} status={character.status} />
+                <Character
+                    key={character.id}
+                    id={character.id}
+                    image={character.image}
+                    name={character.name}
+                    status={character.status}
+                    species={character.species}
+                    type={character.type}
+                    gender={character.gender}
+                />
             ))}
         </div>
     );
