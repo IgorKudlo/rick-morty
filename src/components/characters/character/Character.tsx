@@ -20,7 +20,7 @@ function Character(props: CharacterProps) {
             </Text>
 
             <Text className={styles.status}>
-                {status}
+                {status === 'Alive' ? 'Alive' : status === 'Dead' ? 'Dead' : 'Unknown status'}
             </Text>
 
             <Button component={Link} to={`character/${id}`} color="blue" fullWidth mt="md" radius="md">

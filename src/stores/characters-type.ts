@@ -13,7 +13,7 @@ export type Characters = Character[];
 export type Character = {
     id: number,
     name: string,
-    status: 'Alive' | 'Dead',
+    status: 'Alive' | 'Dead' | unknown,
     species: string,
     type: string,
     gender: string,

@@ -46,9 +46,11 @@ function SingleCharacter () {
                 <List.Item><strong>Species</strong> - {character.species}</List.Item>
                 <List.Item
                     icon={
-                        <ThemeIcon color={character.status === 'Alive' ? 'red' : 'blue'} size={24} radius="xl"></ThemeIcon>
+                        <ThemeIcon color={character.status === 'Alive' ? 'red' : character.status === 'Dead' ? 'blue' : 'gray'} size={24} radius="xl"></ThemeIcon>
                     }
-                ><strong>Status</strong> - {character.status}</List.Item>
+                >
+                    <strong>Status</strong> - {character.status === 'Alive' ? 'Alive' : character.status === 'Dead' ? 'Dead' : 'Unknown status'}
+                </List.Item>
             </List>
         </div>
     );
