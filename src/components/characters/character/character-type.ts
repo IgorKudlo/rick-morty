@@ -1,3 +1,3 @@
-import {Character} from "../../../stores/characters-type.ts";
+import {Character} from "@/stores/characters-type.ts";
 
-export type CharacterProps = Pick<Character, 'image' | 'name' | 'status'>
+export type CharacterProps = Pick<Character, 'id' | 'image' | 'name' | 'status'>

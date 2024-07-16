@@ -13,7 +13,7 @@ export type Characters = Character[];
 export type Character = {
     id: number,
     name: string,
-    status: CharacterStatus,
+    status: 'Alive' | 'Dead',
     species: string,
     type: string,
     gender: string,
@@ -29,10 +29,4 @@ export type Character = {
     episode: string[],
     url: string,
     created: string
-}
-
-enum CharacterStatus {
-    'Alive',
-    'Dead' ,
-    unknown
 }

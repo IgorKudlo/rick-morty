@@ -5,7 +5,7 @@ export const charactersAPI = {
     getAllCharacters() {
         return instance.get<CharactersResponse>('/character');
     },
-    getSingleCharacter(id: number) {
+    getSingleCharacter(id: string) {
         return instance.get<Character>(`/character/${id}`);
     }
 }

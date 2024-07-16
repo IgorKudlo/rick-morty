@@ -19,7 +19,7 @@ function Characters() {
     return (
         <div className={styles.characters}>
             {characters.map((character) => (
-                <Character key={character.id} image={character.image} name={character.name} status={character.status} />
+                <Character key={character.id} id={character.id} image={character.image} name={character.name} status={character.status} />
             ))}
         </div>
     );

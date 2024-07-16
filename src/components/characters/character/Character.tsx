@@ -1,9 +1,10 @@
 import { Card, Image, Text, Button } from "@mantine/core";
 import {CharacterProps} from "./character-type.ts";
 import styles from "./styles.module.css"
+import {Link} from "react-router-dom";
 
 function Character(props: CharacterProps) {
-    const { image, name, status } = props;
+    const { id, image, name, status } = props;
 
     return (
         <Card shadow="sm" padding="lg" radius="md" withBorder>
@@ -22,7 +23,7 @@ function Character(props: CharacterProps) {
                 {status}
             </Text>
 
-            <Button color="blue" fullWidth mt="md" radius="md">
+            <Button component={Link} to={`character/${id}`} color="blue" fullWidth mt="md" radius="md">
                 More information
             </Button>
         </Card>

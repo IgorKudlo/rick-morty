@@ -22,8 +22,16 @@ class CharactersStore {
         }
     }
 
-    getSingleCharacter(id: number) {
-        return charactersAPI.getSingleCharacter(id);
+    getSingleCharacter = async (id: string) =>  {
+        try {
+            this.isLoading = true;
+            const res = await charactersAPI.getSingleCharacter(id);
+            return res.data;
+        } catch (error) {
+            console.log(error);
+        } finally {
+            this.isLoading = false;
+        }
     }
 }
 
