@@ -19,7 +19,7 @@ function Character(props: CharacterProps) {
                 {name}
             </Text>
 
-            <Text className={styles.status}>
+            <Text className={styles.status} c={status === 'Alive' ? 'green' : status === 'Dead' ? 'red' : 'gray'}>
                 {status === 'Alive' ? 'Alive' : status === 'Dead' ? 'Dead' : 'Unknown status'}
             </Text>
 
