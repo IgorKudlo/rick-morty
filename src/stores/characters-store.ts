@@ -1,4 +1,4 @@
-import {makeAutoObservable, runInAction} from "mobx";
+import {makeAutoObservable} from "mobx";
 import {charactersAPI} from "../api/characters.ts";
 import {Characters} from "./characters-type.ts";
 
@@ -14,9 +14,7 @@ class CharactersStore {
         try {
             this.isLoading = true;
             const res = await charactersAPI.getAllCharacters();
-            runInAction(() => {
-                this.characters = res.data.results;
-            })
+            this.characters = res.data.results;
         } catch (error) {
             console.log(error);
         } finally {

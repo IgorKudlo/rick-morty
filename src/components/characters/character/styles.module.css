@@ -1,0 +1,8 @@
+.media {
+    margin-bottom: var(--mantine-spacing-lg);
+}
+
+.status {
+    font-size: var(--mantine-font-size-sm);
+    line-height: var(--mantine-line-height-sm);
+}
