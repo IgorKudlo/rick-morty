@@ -8,7 +8,7 @@ function Pagination() {
     const onChangeHandler = (page: number) => paginationStore.setCurrentPage(page)
 
     return (
-        <PaginationMantine total={paginationStore.totalPages} onChange={onChangeHandler} />
+        <PaginationMantine total={paginationStore.totalPages} value={paginationStore.currentPage} onChange={onChangeHandler} />
     );
 }
 
