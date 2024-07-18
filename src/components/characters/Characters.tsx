@@ -7,15 +7,16 @@ import {observer} from "mobx-react-lite";
 import {CharacterGender, CharacterStatus} from "@/stores/characters-type.ts";
 
 function Characters() {
-    const { charactersStore, filtersStore } = useStores();
+    const { charactersStore, filtersStore, paginationStore } = useStores();
 
     useEffect(() => {
         charactersStore.getCharacters({
+            page: paginationStore.currentPage,
             name: filtersStore.name !== '' ? filtersStore.name : undefined,
             status: filtersStore.status !== 'All' ? filtersStore.status as CharacterStatus : undefined,
             gender: filtersStore.gender !== 'All' ? filtersStore.gender as CharacterGender : undefined,
         });
-    }, [charactersStore, filtersStore.name, filtersStore.status, filtersStore.gender]);
+    }, [charactersStore, paginationStore.currentPage, filtersStore.name, filtersStore.status, filtersStore.gender]);
 
     if (charactersStore.isLoading) {
         return <Loader className={styles.loader} color="blue" />;

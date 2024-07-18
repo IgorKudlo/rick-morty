@@ -1,20 +1,18 @@
-import { Pagination as PaginationMantine } from '@mantine/core';
+import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
+import { Pagination as PaginationMantine } from '@mantine/core';
 import { useStores } from "@/stores/root-store-context.ts";
-import { CharacterGender, CharacterStatus } from "@/stores/characters-type.ts";
 
 function Pagination() {
-    const { paginationStore, filtersStore, charactersStore } = useStores();
+    const { paginationStore, filtersStore } = useStores();
 
     const onChangeHandler = (page: number) => {
         paginationStore.setCurrentPage(page);
-        charactersStore.getCharacters({
-            page,
-            name: filtersStore.name !== '' ? filtersStore.name : undefined,
-            status: filtersStore.status !== 'All' ? filtersStore.status as CharacterStatus : undefined,
-            gender: filtersStore.gender !== 'All' ? filtersStore.gender as CharacterGender : undefined,
-        });
     }
+
+    useEffect(() => {
+        paginationStore.setCurrentPage(1);
+    }, [paginationStore, filtersStore.name, filtersStore.status, filtersStore.gender]);
 
     return (
         <PaginationMantine total={paginationStore.totalPages} value={paginationStore.currentPage} onChange={onChangeHandler} />

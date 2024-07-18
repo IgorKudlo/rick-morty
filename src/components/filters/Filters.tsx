@@ -7,7 +7,7 @@ import { useDebounce } from "@/hooks/useDebounce.ts";
 import styles from './styles.module.css';
 
 function Filters() {
-    const { filtersStore, charactersStore, paginationStore } = useStores();
+    const { filtersStore} = useStores();
     const [name, setName] = useState('');
     const debouncedValue = useDebounce(name);
 
@@ -26,10 +26,6 @@ function Filters() {
     useEffect(() => {
         filtersStore.setName(debouncedValue);
     }, [debouncedValue, filtersStore]);
-
-    useEffect(() => {
-        paginationStore.setCurrentPage(1);
-    }, [filtersStore.status, filtersStore.gender, filtersStore.name, paginationStore, charactersStore]);
 
     return (
         <div className={styles.filters}>

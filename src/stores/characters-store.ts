@@ -17,6 +17,7 @@ class CharactersStore {
         try {
             this.setLoading(true);
             this.setError('');
+            PaginationStore.setTotalPages(1);
             const res = await charactersAPI.getCharacters(params);
             const { info, results } = res.data;
             this.setCharacters(results);
