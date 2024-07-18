@@ -1,5 +1,5 @@
-import {instance} from "./common.api.ts";
-import {Character, CharactersParams, CharactersResponse} from "../stores/characters-type.ts";
+import { instance } from "./common.api.ts";
+import { Character, CharactersParams, CharactersResponse } from "../stores/characters-type.ts";
 
 export const charactersAPI = {
     getCharacters(params: CharactersParams) {
@@ -8,8 +8,6 @@ export const charactersAPI = {
                 page: params.page,
                 name: params.name,
                 status: params.status,
-                species: params.species,
-                type: params.type,
                 gender: params.gender
             }
         });
