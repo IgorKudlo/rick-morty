@@ -1,6 +1,6 @@
 .characters {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, max(200px, 5vw));
     gap: 24px;
 }
 

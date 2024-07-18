@@ -11,10 +11,10 @@ class CharactersStore {
         makeAutoObservable(this)
     }
 
-    getAllCharacters = async (params: CharactersParams = {}) => {
+    async getCharacters(params: CharactersParams = {}) {
         try {
             this.setLoading(true);
-            const res = await charactersAPI.getAllCharacters(params);
+            const res = await charactersAPI.getCharacters(params);
             const { info, results } = res.data;
             this.setCharacters(results);
             PaginationStore.setTotalPages(info.pages);
@@ -25,7 +25,7 @@ class CharactersStore {
         }
     }
 
-    getSingleCharacter = async (id: string) =>  {
+    async getSingleCharacter(id: string)  {
         try {
             this.setLoading(true);
             const res = await charactersAPI.getSingleCharacter(id);

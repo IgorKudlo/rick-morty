@@ -9,7 +9,7 @@ function Characters() {
     const { charactersStore } = useStores();
 
     useEffect(() => {
-        charactersStore.getAllCharacters();
+        charactersStore.getCharacters();
     }, [charactersStore]);
 
     if (charactersStore.isLoading) {

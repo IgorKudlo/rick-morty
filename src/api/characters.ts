@@ -2,7 +2,7 @@ import {instance} from "./common.api.ts";
 import {Character, CharactersParams, CharactersResponse} from "../stores/characters-type.ts";
 
 export const charactersAPI = {
-    getAllCharacters(params: CharactersParams) {
+    getCharacters(params: CharactersParams) {
         return instance.get<CharactersResponse>('/character', {
             params: {
                 page: params.page,
