@@ -1,5 +1,5 @@
 import { instance } from "./common.api.ts";
-import { Character, CharactersParams, CharactersResponse } from "../stores/characters-type.ts";
+import { Character, CharactersParams, CharactersResponse } from "@/stores/characters-type.ts";
 
 export const charactersAPI = {
     getCharacters(params: CharactersParams) {

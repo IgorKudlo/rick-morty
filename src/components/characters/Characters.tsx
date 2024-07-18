@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import { useStores } from "@/stores/root-store-context.ts";
 import { Loader } from "@mantine/core";
 import Character from "./character/Character.tsx";
+import { CharacterGender, CharacterStatus } from "@/stores/characters-type.ts";
 import styles from "./styles.module.css";
-import {observer} from "mobx-react-lite";
-import {CharacterGender, CharacterStatus} from "@/stores/characters-type.ts";
 
 function Characters() {
     const { charactersStore, filtersStore, paginationStore } = useStores();

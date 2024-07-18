@@ -1,4 +1,5 @@
-.character {
+.character,
+.error {
     padding: 24px;
 }
 

@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom";
-import {Button, Card, Image, Text} from "@mantine/core";
-import {CharacterProps} from "./character-type.ts";
-import {CharacterStatus} from "@/stores/characters-type.ts";
+import { Link } from "react-router-dom";
+import { Button, Card, Image, Text } from "@mantine/core";
+import { CharacterProps } from "./character-type.ts";
+import { CharacterStatus } from "@/stores/characters-type.ts";
 import styles from "./styles.module.css"
 
 function Character(props: CharacterProps) {

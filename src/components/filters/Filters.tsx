@@ -4,7 +4,7 @@ import { TextInput, Radio, Group, Select } from '@mantine/core';
 import { CharacterGender, CharacterStatus } from "@/stores/characters-type.ts";
 import { useStores } from "@/stores/root-store-context.ts";
 import { useDebounce } from "@/hooks/useDebounce.ts";
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 function Filters() {
     const { filtersStore} = useStores();

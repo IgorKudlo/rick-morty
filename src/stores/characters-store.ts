@@ -1,8 +1,8 @@
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 import axios from "axios";
-import {charactersAPI} from "../api/characters.ts";
-import {Characters, CharactersParams} from "./characters-type.ts";
+import { charactersAPI } from "@/api/characters.ts";
 import PaginationStore from "@/stores/pagination-store.ts";
+import { Characters, CharactersParams } from "./characters-type.ts";
 
 class CharactersStore {
     characters: Characters = [];
@@ -38,12 +38,19 @@ class CharactersStore {
     async getSingleCharacter(id: string)  {
         try {
             this.setLoading(true);
+            this.setError('');
             const res = await charactersAPI.getSingleCharacter(id);
             return res.data;
-        } catch (error) {
-            console.log(error);
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                this.setError(error.response?.data.error)
+            } else if(error instanceof Error) {
+                this.setError(error.message);
+            } else {
+                this.setError('An error occurred');
+            }
         } finally {
-            this.setLoading(true);
+            this.setLoading(false);
         }
     }
 
