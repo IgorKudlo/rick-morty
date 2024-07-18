@@ -25,15 +25,10 @@ function Filters() {
 
     useEffect(() => {
         filtersStore.setName(debouncedValue);
-    }, [debouncedValue]);
+    }, [debouncedValue, filtersStore]);
 
     useEffect(() => {
         paginationStore.setCurrentPage(1);
-        charactersStore.getCharacters({
-            name: debouncedValue !== '' ? debouncedValue : undefined,
-            status: filtersStore.status !== 'All' ? filtersStore.status as CharacterStatus : undefined,
-            gender: filtersStore.gender !== 'All' ? filtersStore.gender as CharacterGender : undefined,
-        });
     }, [filtersStore.status, filtersStore.gender, filtersStore.name, paginationStore, charactersStore]);
 
     return (

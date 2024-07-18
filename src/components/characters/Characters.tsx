@@ -4,13 +4,18 @@ import { Loader } from "@mantine/core";
 import Character from "./character/Character.tsx";
 import styles from "./styles.module.css";
 import {observer} from "mobx-react-lite";
+import {CharacterGender, CharacterStatus} from "@/stores/characters-type.ts";
 
 function Characters() {
-    const { charactersStore } = useStores();
+    const { charactersStore, filtersStore } = useStores();
 
     useEffect(() => {
-        charactersStore.getCharacters();
-    }, [charactersStore]);
+        charactersStore.getCharacters({
+            name: filtersStore.name !== '' ? filtersStore.name : undefined,
+            status: filtersStore.status !== 'All' ? filtersStore.status as CharacterStatus : undefined,
+            gender: filtersStore.gender !== 'All' ? filtersStore.gender as CharacterGender : undefined,
+        });
+    }, [charactersStore, filtersStore.name, filtersStore.status, filtersStore.gender]);
 
     if (charactersStore.isLoading) {
         return <Loader className={styles.loader} color="blue" />;
