@@ -25,7 +25,6 @@ function Filters() {
 
     useEffect(() => {
         filtersStore.setName(debouncedValue);
-        console.log(debouncedValue)
     }, [debouncedValue]);
 
     useEffect(() => {

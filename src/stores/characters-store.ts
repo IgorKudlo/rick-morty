@@ -25,6 +25,8 @@ class CharactersStore {
             if (axios.isAxiosError(error)) {
                 this.setError(error.response?.data.error)
             } else if(error instanceof Error) {
+                this.setError(error.message);
+            } else {
                 this.setError('An error occurred');
             }
         } finally {
