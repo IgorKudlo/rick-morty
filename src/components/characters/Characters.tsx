@@ -16,6 +16,10 @@ function Characters() {
         return <Loader className={styles.loader} color="blue" />;
     }
 
+    if (charactersStore.error) {
+        return <h1>{charactersStore.error}</h1>;
+    }
+
     return (
         <div className={styles.characters}>
             {charactersStore.characters.map((character) => (
